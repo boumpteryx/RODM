@@ -4,12 +4,12 @@ include("utilities.jl")
 function main()
 
     # Pour chaque jeu de données
-    for dataSetName in ["iris", "seeds", "wine"]
-        
+    for dataSetName in ["iris", "seeds", "wine", "haberman", "banknote"]
+
         print("=== Dataset ", dataSetName)
 
         # Préparation des données
-        include("../data/" * dataSetName * ".txt") 
+        include("../data/" * dataSetName * ".txt")
         train, test = train_test_indexes(length(Y))
         X_train = X[train, :]
         Y_train = Y[train]
@@ -17,7 +17,7 @@ function main()
         Y_test = Y[test]
 
         println(" (train size ", size(X_train, 1), ", test size ", size(X_test, 1), ", ", size(X_train, 2), ", features count: ", size(X_train, 2), ")")
-        
+
         # Temps limite de la méthode de résolution en secondes
         time_limit = 30
 
@@ -51,5 +51,5 @@ function main()
             end
             println("\n")
         end
-    end 
+    end
 end
