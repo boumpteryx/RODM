@@ -1,5 +1,35 @@
 include("building_tree.jl")
 include("utilities.jl")
+using LinearAlgebra
+
+function fusion_points(X, Y, proportion)
+  n = length(Y)
+  m = n*proportion
+  m ÷= 1
+  for i in 1:m
+    # trouver points d'indice a et b les plus proches de meme classe
+    distance = 1
+    a, b = 0, 0
+    for k in 1:size(X, 1)
+      for l in 1:size(X, 1)
+        if Y[k] == Y[l] && k != l
+          distance_provisoire = norm(X[k,:] - X[l,:]) # distance euclidienne
+          if distance_provisoire < distance && distance_provisoire > 0
+            distance = distance_provisoire
+            a = k
+            b = l
+          end
+        end
+      end
+    end
+    # les fusionner dans X et dans Y
+    X[a,:] = 0.5*(X[a,:] + X[b,:])
+    # supprimer X[b] et Y[b]
+    X = X[1:end .!= b,:]
+    splice!(Y, b)
+  end
+  return X,Y
+end
 
 function main()
 
@@ -11,9 +41,10 @@ function main()
         # Préparation des données
         include("../data/" * dataSetName * ".txt")
         train, test = train_test_indexes(length(Y))
-        X_train = X[train, :]
-        Y_train = Y[train]
-        X_test = X[test, :]
+        X_train = X[train, :] # modifier X_train pour fusionner gamma pourcent des points de meme classe
+        Y_train = Y[train] # idem sur Y_train
+        X_train, Y_train = fusion_points(X_train, Y_train, 0.2)
+        X_test = X[test, :] # mais pas sur les donnees de test !
         Y_test = Y[test]
 
         println(" (train size ", size(X_train, 1), ", test size ", size(X_test, 1), ", ", size(X_train, 2), ", features count: ", size(X_train, 2), ")")
