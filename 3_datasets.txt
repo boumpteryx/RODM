@@ -1,38 +1,64 @@
 === Dataset iris (train size 120, test size 30, 4, features count: 4)
   D = 2
-    Univarié...         4.3s    gap 0.0%        Erreurs train/test 5/1
+    Univarié...         9.5s    gap 0.0%        Erreurs train/test 5/1
     Multivarié...       4.6s    gap 0.0%        Erreurs train/test 1/0
 
   D = 3
-    Univarié...         30.4s   gap 0.8%        Erreurs train/test 1/4
-    Multivarié...       3.7s    gap 0.0%        Erreurs train/test 0/2
+    Univarié...         30.3s   gap 0.8%        Erreurs train/test 1/4
+    Multivarié...       3.4s    gap 0.0%        Erreurs train/test 0/2
 
   D = 4
     Univarié...         30.8s   gap 0.8%        Erreurs train/test 1/1
-    Multivarié...       17.8s   gap 0.0%        Erreurs train/test 0/2
+    Multivarié...       18.7s   gap 0.0%        Erreurs train/test 0/2
 
 === Dataset seeds (train size 168, test size 42, 6, features count: 6)
   D = 2
-    Univarié...         27.0s   gap 0.0%        Erreurs train/test 9/4
-    Multivarié...       1.4s    gap 0.0%        Erreurs train/test 0/1
+    Univarié...         30.1s   gap 3.9%        Erreurs train/test 9/4
+    Multivarié...       2.3s    gap 0.0%        Erreurs train/test 0/1
 
   D = 3
-    Univarié...         30.2s   gap 9.1%        Erreurs train/test 14/7
-    Multivarié...       11.0s   gap 0.0%        Erreurs train/test 0/2
+    Univarié...         30.8s   gap 9.1%        Erreurs train/test 13/4
+    Multivarié...       11.7s   gap 0.0%        Erreurs train/test 0/2
 
   D = 4
-    Univarié...         31.8s   gap 12.0%       Erreurs train/test 17/7
-    Multivarié...       31.4s   gap 47.4%       Erreurs train/test 54/16
+    Univarié...         31.4s   gap 12.0%       Erreurs train/test 17/7
+    Multivarié...       31.3s   gap 0.0%        Erreurs train/test 0/2
 
 === Dataset wine (train size 142, test size 36, 13, features count: 13)
   D = 2
-    Univarié...         30.2s   gap 4.4%        Erreurs train/test 6/1
-    Multivarié...       1.3s    gap 0.0%        Erreurs train/test 0/1
+    Univarié...         30.1s   gap 2.7%        Erreurs train/test 5/3
+    Multivarié...       0.8s    gap 0.0%        Erreurs train/test 0/1
 
   D = 3
-    Univarié...         30.4s   gap 2.9%        Erreurs train/test 4/1
-    Multivarié...       1.0s    gap 0.0%        Erreurs train/test 0/1
+    Univarié...         30.2s   gap 2.2%        Erreurs train/test 3/1
+    Multivarié...       0.7s    gap 0.0%        Erreurs train/test 0/1
 
   D = 4
-    Univarié...         31.0s   gap 7.6%        Erreurs train/test 10/6
-    Multivarié...       8.1s    gap 0.0%        Erreurs train/test 0/4
+    Univarié...         30.7s   gap 5.2%        Erreurs train/test 7/4
+    Multivarié...       8.2s    gap 0.0%        Erreurs train/test 0/4
+
+=== Dataset haberman (train size 244, test size 62, 3, features count: 3)
+  D = 2
+    Univarié...         30.2s   gap 29.8%       Erreurs train/test 55/15
+    Multivarié...       30.2s   gap 27.1%       Erreurs train/test 52/15
+
+  D = 3
+    Univarié...         30.6s   gap 28.4%       Erreurs train/test 53/16
+    Multivarié...       30.6s   gap 27.1%       Erreurs train/test 52/16
+
+  D = 4
+    Univarié...         32.6s   gap 32.6%       Erreurs train/test 60/14
+    Multivarié...       33.3s   gap 29.1%       Erreurs train/test 55/15
+
+=== Dataset banknote (train size 1097, test size 275, 4, features count: 4)
+  D = 2
+    Univarié...         33.3s   gap 49.3%       Erreurs train/test 363/80
+    Multivarié...       33.3s   gap 0.4%        Erreurs train/test 4/4
+
+  D = 3
+    Univarié...         42.2s   gap 31.1%       Erreurs train/test 260/60
+    Multivarié...       42.6s   gap 0.0%        Erreurs train/test 0/0
+
+  D = 4
+    Univarié...         78.3s   gap 24.7%       Erreurs train/test 217/52
+    Multivarié...       58.2s   gap 82.2%       Erreurs train/test 495/115
