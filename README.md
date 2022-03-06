@@ -1,6 +1,5 @@
 # RODM
 Recherche Opérationnelle et Données Massives
-## Antoine Desjardins & Martin Lainée
 
 Pour ce repo nous utilisons Julia 1.6.3 et CPLEX :
 
