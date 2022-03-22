@@ -1,4 +1,5 @@
 include("building_tree.jl")
+include("building_weighted_tree.jl")
 include("utilities.jl")
 using LinearAlgebra
 
@@ -51,6 +52,12 @@ function main()
 
         # Temps limite de la méthode de résolution en secondes
         time_limit = 30
+        
+        # On ajoute ou pas des poids aléatoires aux points/aux clusters
+        weigthed = true
+        if weigthed
+          println("avec poids : ")
+        end
 
         # Pour chaque profondeur considérée
         for D in 2:4
@@ -60,7 +67,11 @@ function main()
             ## 1 - Univarié (séparation sur une seule variable à la fois)
             # Création de l'arbre
             print("    Univarié...  \t")
-            T, obj, resolution_time, gap = build_tree(X_train, Y_train, D,  multivariate = false, time_limit = time_limit)
+            if weigthed
+              T, obj, resolution_time, gap = build_weighted_tree(X_train, Y_train, D,  multivariate = false, time_limit = time_limit)
+            else
+              T, obj, resolution_time, gap = build_tree(X_train, Y_train, D,  multivariate = false, time_limit = time_limit)
+            end
 
             # Test de la performance de l'arbre
             print(round(resolution_time, digits = 1), "s\t")
@@ -73,7 +84,11 @@ function main()
 
             ## 2 - Multivarié
             print("    Multivarié...\t")
-            T, obj, resolution_time, gap = build_tree(X_train, Y_train, D, multivariate = true, time_limit = time_limit)
+            if weigthed
+              T, obj, resolution_time, gap = build_weighted_tree(X_train, Y_train, D, multivariate = true, time_limit = time_limit)
+            else
+              T, obj, resolution_time, gap = build_tree(X_train, Y_train, D, multivariate = true, time_limit = time_limit)
+            end
             print(round(resolution_time, digits = 1), "s\t")
             print("gap ", round(gap, digits = 1), "%\t")
             if T != nothing
